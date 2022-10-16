@@ -19,8 +19,8 @@ jobs:
           uses: azure/docker-login@v1
           with:
             login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            username: ${{ secrets.4e08a17f-5ac7-47fb-a81f-0e02d2f05140 }}
-            password: ${{ secrets.Il~8Q~5WVB-haY7LlBkJuo66D-qmM9mtO7UB5atD }}
+            username: ${{ 4e08a17f-5ac7-47fb-a81f-0e02d2f05140 }}
+            password: ${{ Il~8Q~5WVB-haY7LlBkJuo66D-qmM9mtO7UB5atD }}
         - run: |
             docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.REPOSITORY_NAME }}:${{ github.run_number }}
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.REPOSITORY_NAME }}:${{ github.run_number }}
@@ -28,12 +28,12 @@ jobs:
         - name: 'Deploy to Azure Container Instances'
           uses: 'azure/aci-deploy@v1'
           with:
-            resource-group: ${{ secrets.container_registry }}
-            dns-name-label: ${{ secrets.container_registry }}
+            resource-group: ${{ container_registry }}
+            dns-name-label: ${{ container_registry }}
             image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.getting_started }}:${{ github.run_number }}
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-            registry-username: ${{ secrets.4e08a17f-5ac7-47fb-a81f-0e02d2f05140 }}
-            registry-password: ${{ secrets.Il~8Q~5WVB-haY7LlBkJuo66D-qmM9mtO7UB5atD }}
+            registry-username: ${{ 4e08a17f-5ac7-47fb-a81f-0e02d2f05140 }}
+            registry-password: ${{ Il~8Q~5WVB-haY7LlBkJuo66D-qmM9mtO7UB5atD }}
             name: getting-started-github
             location: 'west europe'
             ports: '3000'
