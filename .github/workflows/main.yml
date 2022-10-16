@@ -18,7 +18,7 @@ jobs:
             username: 4e08a17f-5ac7-47fb-a81f-0e02d2f05140 
             password: Il~8Q~5WVB-haY7LlBkJuo66D-qmM9mtO7UB5atD 
         - run: |
-            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/getting-started :${{ github.run_number }}
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/ getting-started :${{ github.run_number }}
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/ getting-started :${{ github.run_number }}
         - name: 'Deploy to Azure Container Instances' 
           uses: 'azure/aci-deploy@v1'
